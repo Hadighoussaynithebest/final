@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Budget - Lebanon 2025</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            padding: 40px;
+            max-width: 900px;
+            margin: auto;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+        }
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        canvas {
+            display: block;
+            margin: 0 auto 40px auto;
+            max-width: 600px;
+        }
+        p, ul, li {
+            line-height: 1.6;
+        }
+        ul {
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .emoji-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Where Does Your Money Go?</h1>
+        <p>
+            In a time of economic crisis, understanding how public funds are spent is more important than ever.
+            Our Governmental Budget section breaks down how the Lebanese government allocates taxpayer money — from essential services like healthcare and education to infrastructure and public salaries.
+        </p>
+        <p>
+            We turn complex budget data into simple, accessible visuals so you can see exactly where your contributions are going, and hold institutions accountable.
+            Transparency starts here.
+        </p>
+
+        <canvas id="budgetChart"></canvas>
+
+        <p><strong>2025 Lebanese Budget Breakdown:</strong></p>
+        <ul>
+            <li>53% — Salaries & Social Benefits</li>
+            <li>16% — Operating Costs (Goods & Services)</li>
+            <li>7% — Debt Servicing</li>
+            <li>10% — Capital & Infrastructure</li>
+            <li>8.5% — Education</li>
+            <li>8.9% — Healthcare</li>
+            <li>12% — Defense & Security</li>
+        </ul>
+
+        <p>
+            These numbers help shed light on national priorities. Over half the budget goes to public salaries, while health and education remain under 10% each.
+            This is why transparency and accountability matter now more than ever.
+        </p>
+        <img src="./images/1.png" alt="table" width="900">
+        <img src="./images/screenshot-2025-07-16-141357.png" alt="table 2" width="900">
+        <div class="section">
+            <h2>🇱🇧 Lebanon's Key Economic Indicators (2024–2025)</h2>
+            <p class="emoji-title">📉 Currency & Financial Markets</p>
+            <ul>
+                <li><strong>Currency Rate:</strong> 89,586 LBP/USD (Jul 2025)<br>
+                → Sign of severe currency devaluation and ongoing instability.</li>
+                <li><strong>Stock Market Index:</strong> 2,032 points (Unchanged)<br>
+                → Market stagnation reflects low investor confidence.</li>
+            </ul>
+
+            <p class="emoji-title">📊</int> Economic Growth & Jobs</p>
+            <ul>
+                <li><strong>GDP Growth Rate:</strong> -0.7% (Dec 2023)<br>
+                → Economic contraction, signaling continued recession.</li>
+                <li><strong>Unemployment Rate:</strong> 11.5% (Dec 2023)<br>
+                → High joblessness, especially in youth and informal sectors.</li>
+            </ul>
+
+            <p class="emoji-title">💸 Prices & Interest</p>
+            <ul>
+                <li><strong>Inflation Rate:</strong> 14.4% (May 2025)<br>
+                → Rising cost of living, decreasing purchasing power.</li>
+                <li><strong>Interest Rate:</strong> 20% (Mar 2025)<br>
+                → High rates aimed at controlling inflation, but discourage borrowing and investment.</li>
+            </ul>
+
+            <p class="emoji-title">📦 Trade & External Accounts</p>
+            <ul>
+                <li><strong>Balance of Trade:</strong> -743 million USD (Dec 2024)<br>
+                → Lebanon imports much more than it exports.</li>
+                <li><strong>Current Account Balance:</strong> +46.28 million USD (Dec 2024)<br>
+                → Slight improvement due to remittances or aid.</li>
+                <li><strong>Current Account to GDP:</strong> -31.5% (Dec 2023)<br>
+                → Still heavily reliant on foreign inflows.</li>
+            </ul>
+
+            <p class="emoji-title">🏧 Public Finance</p>
+            <ul>
+                <li><strong>Government Debt to GDP:</strong> 164% (Dec 2024)<br>
+                → Debt is 1.6× the economy — critically high.</li>
+                <li><strong>Government Budget Balance:</strong> -0.4% (Dec 2023)<br>
+                → Small but persistent budget deficit.</li>
+            </ul>
+
+            <p class="emoji-title">🧾 Taxation</p>
+            <ul>
+                <li><strong>Corporate Tax Rate:</strong> 17% (Dec 2025)<br>
+                → Moderate for businesses.</li>
+                <li><strong>Personal Income Tax Rate:</strong> 25% (Dec 2025)<br>
+                → High on paper, but enforcement remains weak.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('budgetChart').getContext('2d');
+        const budgetChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: [
+                    'Salaries & Social Benefits',
+                    'Operating Costs (Goods & Services)',
+                    'Debt Servicing',
+                    'Capital & Infrastructure',
+                    'Education',
+                    'Healthcare',
+                    'Defense & Security'
+                ],
+                datasets: [{
+                    data: [53, 16, 7, 10, 8.5, 8.9, 12],
+                    backgroundColor: [
+                        '#4E79A7',
+                        '#F28E2B',
+                        '#E15759',
+                        '#76B7B2',
+                        '#59A14F',
+                        '#EDC948',
+                        '#B07AA1'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
